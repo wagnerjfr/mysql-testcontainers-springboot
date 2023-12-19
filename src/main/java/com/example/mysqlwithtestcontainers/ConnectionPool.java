@@ -2,7 +2,6 @@ package com.example.mysqlwithtestcontainers;
 
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
-
 import java.sql.Connection;
 
 public class ConnectionPool {

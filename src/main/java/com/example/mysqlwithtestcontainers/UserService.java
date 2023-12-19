@@ -5,14 +5,14 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class UserService {
+public final class UserService {
     private final ConnectionPool connectionPool;
 
     public UserService(ConnectionPool connectionPool) {
         this.connectionPool = connectionPool;
     }
 
-    public User getUser( int id) throws SQLException {
+    public User getUser(int id) throws SQLException {
         try (Connection connection = this.connectionPool.getConnection()) {
             String query = "SELECT * FROM user WHERE id = ?";
             PreparedStatement pstmt = connection.prepareStatement(query);
