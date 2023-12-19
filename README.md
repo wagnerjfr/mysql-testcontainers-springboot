@@ -8,5 +8,5 @@ and the primary emphasis will be on utilizing Testcontainers for testing interac
 -----------
 
 ## Full Article
-### [MySQL Integration Test With Spring Boot and Testcontainers]()
+### [MySQL Integration Test With Spring Boot and Testcontainers](https://levelup.gitconnected.com/mysql-integration-test-with-spring-boot-and-testcontainers-4cada69e8797)
 _Dockerized Testing for Seamless Database Integration in Java Applications_
