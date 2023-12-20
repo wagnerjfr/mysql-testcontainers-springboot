@@ -5,11 +5,14 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import com.example.mysqlwithtestcontainers.util.TestUtils;
+import lombok.extern.slf4j.Slf4j;
 import org.junit.ClassRule;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInfo;
 import org.junit.jupiter.api.TestMethodOrder;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.testcontainers.containers.MySQLContainer;
@@ -17,6 +20,7 @@ import org.testcontainers.junit.jupiter.Testcontainers;
 
 import java.sql.SQLException;
 
+@Slf4j
 @SpringBootTest
 @Testcontainers
 @TestMethodOrder(MethodOrderer.MethodName.class)
@@ -26,6 +30,7 @@ class UserServiceTest {
 	static UserService userService;
 	static ConnectionPool connectionPool;
 	static TestUtils testUtils;
+	private static int testCount;
 
 	@BeforeAll
 	static void startDb() throws SQLException {
@@ -40,6 +45,11 @@ class UserServiceTest {
 	@AfterAll
 	static void stopDb(){
 		mySQLContainer.stop();
+	}
+
+	@BeforeEach
+	void beforeEach(TestInfo testInfo) {
+		log.info("Test {}: {}", ++testCount, testInfo.getDisplayName());
 	}
 
 	@Test
