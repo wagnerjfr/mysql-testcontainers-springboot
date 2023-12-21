@@ -6,7 +6,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import com.example.mysqlwithtestcontainers.util.TestUtils;
 import lombok.extern.slf4j.Slf4j;
-import org.junit.ClassRule;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -25,7 +24,7 @@ import java.sql.SQLException;
 @Testcontainers
 @TestMethodOrder(MethodOrderer.MethodName.class)
 class UserServiceTest {
-	@ClassRule
+
 	static MySQLContainer<?> mySQLContainer = new MySQLContainer<>("mysql:latest");
 	static UserService userService;
 	static ConnectionPool connectionPool;
